@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>{{title}}</h1>
+    <div class="form__container">
+        
+        <form #todoForm name="todoForm">
+            <div class="input">
+                <label>My task</label>
+                <input type="text" 
+                class="input-form" 
+                required
+                #todoName
+                name="todoName"
+                placeholder="Añadir tarea"
+                ngModel
+                >
+            </div>
+            <div class="input">
+                <button class="btn btn-success" 
+                (click)="guardarTarea(todoName.value);todoForm.reset()">
+                    Añadir Tarea
+                </button>
+            </div>
+        </form>
+    
+    </div>
+    
+    <h1>My Tasks</h1>
+    
+    <div class="list__container">
+        <ul>
+            <li *ngFor="let todo of todoArray">
+                {{todo}} <i (click)="borrarTarea(todo)" class="fas fa-trash-alt"></i>
+            </li>
+            
+        </ul>
+    </div>
+
+</div>
